@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from '@studio-freight/lenis';
@@ -80,11 +80,12 @@ export default function App() {
     };
     window.addEventListener('scroll', onScroll, { passive: true });
 
+    const handlers = [];
+
     // Magnetic buttons
     const isMobile = 'ontouchstart' in window || window.innerWidth < 900;
     if (!isMobile) {
       const btns = document.querySelectorAll('.magnetic');
-      const handlers = [];
       btns.forEach(btn => {
         const move = (e) => {
           const r = btn.getBoundingClientRect();
@@ -110,6 +111,10 @@ export default function App() {
 
     return () => {
       window.removeEventListener('scroll', onScroll);
+      handlers.forEach(({ btn, move, leave }) => {
+        btn.removeEventListener('mousemove', move);
+        btn.removeEventListener('mouseleave', leave);
+      });
     };
   }, [siteVisible]);
 

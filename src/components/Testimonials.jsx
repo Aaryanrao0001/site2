@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const testimonials = [
   {
@@ -39,7 +38,7 @@ export default function Testimonials() {
       });
 
       // ─── TESTIMONIAL BLOCKS — PREMIUM REVEAL ───
-      gsap.utils.toArray('.testimonial-block').forEach((block, i) => {
+      gsap.utils.toArray('.testimonial-block').forEach((block) => {
         const quote = block.querySelector('.testimonial-quote');
         const author = block.querySelector('.testimonial-author');
 
@@ -104,9 +103,9 @@ export default function Testimonials() {
         <p className="eyebrow" data-animate="fade-up">What They Say</p>
 
         <div className="testimonials-list">
-          {testimonials.map((t, i) => (
+          {testimonials.map((t) => (
             <div
-              key={i}
+              key={t.name}
               className={`testimonial-block ${t.featured ? 'testimonial-block--featured' : ''}`}
             >
               <p className={`testimonial-quote ${t.featured ? 'testimonial-quote--lg' : ''}`}>

@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import { Fragment, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const items = [
   'Websites', 'Mobile Apps', 'AI Systems', 'Automation', 'Design Systems', 'Growth'
@@ -45,10 +44,10 @@ export default function Marquee() {
     <div className="marquee-strip" ref={stripRef}>
       <div className="marquee-track marquee-track--gsap">
         {[...items, ...items, ...items].map((item, i) => (
-          <React.Fragment key={i}>
+          <Fragment key={i}>
             <span>{item}</span>
             <span className="marquee-dot">◆</span>
-          </React.Fragment>
+          </Fragment>
         ))}
       </div>
     </div>
