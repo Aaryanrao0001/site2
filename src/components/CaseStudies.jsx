@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const cases = [
   {
@@ -79,7 +78,7 @@ export default function Work() {
         }, '-=0.5');
 
       // ─── WORK CARDS — dramatic staggered reveal ───
-      gsap.utils.toArray('.work-card').forEach((card, i) => {
+      gsap.utils.toArray('.work-card').forEach((card) => {
         const image = card.querySelector('.work-card-image');
         const info = card.querySelector('.work-card-info');
         const metric = card.querySelector('.work-card-metric');
@@ -182,7 +181,7 @@ export default function Work() {
         <div className="work-grid" data-animate="stagger">
           {cases.map((c, i) => (
             <article
-              key={i}
+              key={c.title}
               className={`work-card ${c.type === 'full' ? 'work-card--full' : 'work-card--half'}`}
               data-index={String(i + 1).padStart(2, '0')}
               data-stagger-item

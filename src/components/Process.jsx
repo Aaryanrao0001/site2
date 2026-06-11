@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const steps = [
   { num: '01', title: 'Discover', desc: 'Deep-dive into your goals, users, and market. We ask the questions other agencies skip.', duration: 'Week 1' },

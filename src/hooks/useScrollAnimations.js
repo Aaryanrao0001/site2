@@ -60,8 +60,7 @@ export function useScrollAnimations(ready = true) {
           // Don't re-split if already split
           if (el.querySelector('.word-wrap')) return;
 
-          // Preserve HTML structure but split text nodes into words
-          const html = el.innerHTML;
+          // Split visible text into word wrappers
           const words = el.textContent.trim().split(/\s+/);
           el.innerHTML = words.map(word =>
             `<span class="word-wrap"><span class="word">${word}</span></span>`
